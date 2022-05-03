@@ -1,8 +1,15 @@
 package com.dio.santander.bankline.api.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable // fornece as informações desta classe para uma outra tabela/classe anotada com @Embedded
 public class Conta {
 
+    @Column(name = "conta_numero")
     private Long numero;
+
+    @Column(name = "conta_saldo")
     private Double saldo;
 
     public Long getNumero() {
