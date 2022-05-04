@@ -1,4 +1,4 @@
-package com.dio.santander.bankline.api.model;
+package com.dio.santander.bankline.api.enums;
 
 public enum MovimentacaoTipo {
     RECEITA,
