@@ -1,6 +1,7 @@
 package com.dio.santander.bankline.api.model;
 
 import com.dio.santander.bankline.api.enums.MovimentacaoTipo;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -33,6 +34,7 @@ public class Movimentacao {
         this.id = id;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss") 
     public LocalDateTime getDataHora() {
         return dataHora;
     }
