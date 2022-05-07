@@ -7,11 +7,16 @@ pelo professor <a href="https://www.linkedin.com/in/glysns/" target="_blank">Gle
 
 ## Tecnologias utilizadas
 
-* JavaScript: Linguagem oficial para desenvolvimento web.
-* TypeScript: Superset que adiciona recursos como tipagem de dados e outros recursos sobre JavaScript 
-* NodeJS: Plataforma que nos permite rodar JavaScript fora do navegador.
-* Angular: Framework JavaScript que provê mecanismos de manipulação da DOM e o padrão SPA.
-* VS Code: IDE para desenvolvimento Web desenvolvida pela Microsoft.
+* Java JDK: Kit de Ferramentas para desenvolvimento na linguagem.
+* Eclipse IDE: Programa para edição, depuração compilação, testes e execução de programas Java
+* Hibernate: Framework baseado no conceito de ORM para a persitência de dados em um banco relacional.
+* Spring Framework: Plataforma para desenvolvimento de aplicações Java baseado nos padrões de projeto de inversão de controle e injeção de dependências.
+* Postgres: Banco de dados relacional utilizado em projetos de grande porte
+* Swagger: Ferramenta de documentação de APIs e Webservices
+* Github: Repositório e gerenciador de versionamento de código fonte
+* Maven: Sistema para gestão de dependência e distribuição de uma aplicação
+* REST: Arquitetura para transferência de dados representativos como JSON
+* Heroku: Plataforma para hospedagem de aplicações com fácil integração com Github 
 
 
 ### Bankline API (Back-end)
