@@ -3,7 +3,6 @@ package com.dio.santander.bankline.api.controller;
 import com.dio.santander.bankline.api.dto.NovoCorrentista;
 import com.dio.santander.bankline.api.model.Correntista;
 import com.dio.santander.bankline.api.model.Movimentacao;
-import com.dio.santander.bankline.api.repository.CorrentistaRepository;
 import com.dio.santander.bankline.api.repository.MovimentacaoRespository;
 import com.dio.santander.bankline.api.service.CorrentistaService;
 import com.dio.santander.bankline.api.service.MovimentacaoService;
@@ -18,9 +17,6 @@ public class CorrentistaController {
 
     @Autowired
     private CorrentistaService correntistaService;
-
-    @Autowired
-    private CorrentistaRepository correntistaRepository;
 
     @Autowired
     private MovimentacaoRespository movimentacaoRespository;

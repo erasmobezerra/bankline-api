@@ -32,7 +32,8 @@ public class MovimentacaoService {
     public void save(NovaMovimentacao novaMovimentacao) {
         Movimentacao movimentacao = new Movimentacao();
 
-        Double valor = novaMovimentacao.getTipo() == MovimentacaoTipo.RECEITA ? novaMovimentacao.getValor() : novaMovimentacao.getValor() * -1;
+        Double valor = novaMovimentacao.getTipo() ==
+                MovimentacaoTipo.RECEITA ? novaMovimentacao.getValor() : novaMovimentacao.getValor() * -1;
 
         movimentacao.setDataHora(LocalDateTime.now());
         movimentacao.setDescricao(novaMovimentacao.getDescricao());
