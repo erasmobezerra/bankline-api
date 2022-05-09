@@ -20,12 +20,12 @@ pelo professor <a href="https://www.linkedin.com/in/glysns/" target="_blank">Gle
 
 
 ### Bankline API (Back-end)
-Acesse a documentação da APi hospedad no Heroku:
-```https://dio-bankline-api-erasmo.herokuapp.com/swagger-ui/index.html#/```
+Acesse a documentação da APi hospedad no Heroku:<br>
+<https://dio-bankline-api-erasmo.herokuapp.com/swagger-ui/index.html#/>
 
 
 ### Bankline APP (Front-end)
-Veja e utilize a aplicação web: 
-```https://dio-santander-app.herokuapp.com/movimentacoes```
+Veja e utilize a aplicação web: <br>
+<https://dio-santander-app.herokuapp.com/movimentacoes>
 
 
