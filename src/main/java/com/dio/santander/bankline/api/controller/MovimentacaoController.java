@@ -14,23 +14,29 @@ import java.util.List;
 public class MovimentacaoController {
 
     @Autowired
-    private MovimentacaoRespository repository;
+    private MovimentacaoService movimentacaoService;
 
     @Autowired
-    private MovimentacaoService service;
+    private MovimentacaoRespository movimentacaoRespository;
 
     @GetMapping
-    public List<Movimentacao> findAll(){
-        return repository.findAll();
+    public List<Movimentacao> findAll() {
+        return movimentacaoService.findAll();
     }
 
     @PostMapping
     public void save(@RequestBody NovaMovimentacao movimentacao) {
-        service.save(movimentacao);
+        movimentacaoService.save(movimentacao);
     }
 
     @GetMapping("/{idConta}")
-	public List<Movimentacao> findAll(@PathVariable("idConta") Integer idConta){
-		return repository.findByIdConta(idConta);
-	}
+    public List<Movimentacao> findAll(@PathVariable("idConta") Integer idConta) {
+        return movimentacaoService.findByIdConta(idConta);
+    }
+
+//    @DeleteMapping("/{idConta}")
+//    public void deleteById(@PathVariable("idConta") Integer idConta){
+//        List<Movimentacao> movimentacaoesWithID = findAll(idConta);
+//        movimentacaoService.deleteAllById(movimentacaoesWithID);
+//    }
 }

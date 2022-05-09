@@ -2,8 +2,11 @@ package com.dio.santander.bankline.api.controller;
 
 import com.dio.santander.bankline.api.dto.NovoCorrentista;
 import com.dio.santander.bankline.api.model.Correntista;
+import com.dio.santander.bankline.api.model.Movimentacao;
 import com.dio.santander.bankline.api.repository.CorrentistaRepository;
+import com.dio.santander.bankline.api.repository.MovimentacaoRespository;
 import com.dio.santander.bankline.api.service.CorrentistaService;
+import com.dio.santander.bankline.api.service.MovimentacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,18 +17,33 @@ import java.util.List;
 public class CorrentistaController {
 
     @Autowired
-    private CorrentistaRepository repository;
+    private CorrentistaService correntistaService;
 
     @Autowired
-    private CorrentistaService service;
+    private CorrentistaRepository correntistaRepository;
+
+    @Autowired
+    private MovimentacaoRespository movimentacaoRespository;
+
+    @Autowired
+    private MovimentacaoService movimentacaoService;
 
     @GetMapping
-    public List<Correntista> findAll(){
-        return repository.findAll();
+    public List<Correntista> findAll() {
+        return correntistaService.findAll();
     }
 
     @PostMapping
     public void save(@RequestBody NovoCorrentista correntista) {
-        service.save(correntista);
+        correntistaService.save(correntista);
+    }
+
+
+    // Delete o Correntista e suas respectivas movimentações
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) throws Exception {
+        correntistaService.deleteById(id);
+        List<Movimentacao> movimentacaoes = movimentacaoRespository.findByIdConta(id);
+        movimentacaoService.deleteAllById(movimentacaoes);
     }
 }

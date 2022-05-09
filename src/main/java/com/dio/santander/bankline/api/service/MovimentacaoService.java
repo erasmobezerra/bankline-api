@@ -10,21 +10,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class MovimentacaoService {
+
     @Autowired
-    private MovimentacaoRespository repository;
+    private MovimentacaoRespository movimentacaoRespository;
 
     @Autowired
     private CorrentistaRepository correntistaRepository;
 
+    public List<Movimentacao> findAll() {
+        return movimentacaoRespository.findAll();
+    }
+
+    public List<Movimentacao> findByIdConta(Integer idConta) {
+        return movimentacaoRespository.findByIdConta(idConta);
+    }
+
     public void save(NovaMovimentacao novaMovimentacao) {
         Movimentacao movimentacao = new Movimentacao();
 
-        Double valor = novaMovimentacao.getTipo()==MovimentacaoTipo.RECEITA ? novaMovimentacao.getValor() : novaMovimentacao.getValor() * -1;
-//        Double valor = novaMovimentacao.getValor();
-//        if(novaMovimentacao.getTipo() == MovimentacaoTipo.DESPESA) valor = valor * -1;
+        Double valor = novaMovimentacao.getTipo() == MovimentacaoTipo.RECEITA ? novaMovimentacao.getValor() : novaMovimentacao.getValor() * -1;
 
         movimentacao.setDataHora(LocalDateTime.now());
         movimentacao.setDescricao(novaMovimentacao.getDescricao());
@@ -33,11 +41,16 @@ public class MovimentacaoService {
         movimentacao.setValor(valor);
 
         Correntista correntista = correntistaRepository.findById(novaMovimentacao.getIdConta()).orElse(null);
-        if(correntista != null) {
+        if (correntista != null) {
             correntista.getConta().setSaldo(correntista.getConta().getSaldo() + valor);
             correntistaRepository.save(correntista);
         }
-        repository.save(movimentacao);
-
+        movimentacaoRespository.save(movimentacao);
     }
+
+    public void deleteAllById(List<Movimentacao> movimentacaoesWithID) {
+        movimentacaoRespository.deleteAll(movimentacaoesWithID);
+    }
+
+
 }
